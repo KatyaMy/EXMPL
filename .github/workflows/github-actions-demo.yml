@@ -35,7 +35,6 @@ jobs:
         pytest tests --junitxml report.xml
       env:
         CICD_RUN: "yes"
-
     - name: Create test summary
       uses: test-summary/action@v1.0
       with:
