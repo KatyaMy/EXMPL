@@ -24,7 +24,7 @@ jobs:
       - name: Check Chromium version
         run: chromium-browser --version
       - name: Install poetry
-        run: (Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | py -
+        run: curl -sSL https://install.python-poetry.org | python3 -
       - name: Load cached venv
         id: cached-poetry-dependencies
         uses: actions/cache@v3
@@ -37,11 +37,6 @@ jobs:
         run: poetry run pytest
       - name: Run the pytest and generate junit xml report
         run: poetry run pytest --junitxml report.xml
-      - name: Create test summary
-        uses: test-summary/action@v2.0
-        with:
-          paths: report.xml
-        if: always()
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
