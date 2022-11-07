@@ -25,7 +25,7 @@ class TestBrowser(unittest.TestCase):
         Navigate to Google
         """
         self.driver.get('https://www.google.com')
-        self.assertEqual(self.driver.title, 'Google')
+        self.assertEqual(self.driver.title, 'Googgle')
 
     def tearDown(self) -> None:
         """
