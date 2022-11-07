@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "actionexmpl"
+name = "ActionExmpl"
 version = "0.1.0"
 description = ""
 authors = ["KatyaMy <20FamGam20@gmail.com>"]
@@ -17,4 +17,3 @@ pip = "^22.3.1"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
-
