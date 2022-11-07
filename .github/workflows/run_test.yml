@@ -1,5 +1,5 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+name: Run Python Tests
+
 on:
   pull_request:
     branches: [ main ]
@@ -27,14 +27,17 @@ jobs:
         python -m pip install --upgrade pip
         pip install pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
     - name: Check Chrome version
       run: |
         google-chrome --version
+
     - name: Test with pytest and generate junit xml report
       run: |
         pytest tests --junitxml report.xml
       env:
         CICD_RUN: "yes"
+
     - name: Create test summary
       uses: test-summary/action@v1.0
       with:
@@ -46,4 +49,3 @@ jobs:
       if: always()
       with:
         files: "report.xml"
-
