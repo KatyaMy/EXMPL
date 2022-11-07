@@ -19,8 +19,7 @@ jobs:
 
       - name: Update repo
         run: sudo apt-get update
-      - name: Install software
-        run: sudo apt-get install -y chromium-browser
+
       - name: Check Chromium version
         run: chromium-browser --version
       - name: Install poetry
