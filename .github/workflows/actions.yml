@@ -35,7 +35,8 @@ jobs:
 
       - name: Update repo
         run: sudo apt-get update
-
+      - name: Install software
+        run: sudo apt-get install -y chromium-browser
       - name: Check Chromium version
         run: chromium-browser --version
       - name: Install poetry
@@ -52,6 +53,11 @@ jobs:
         run: poetry run pytest
       - name: Run the pytest and generate junit xml report
         run: poetry run pytest --junitxml report.xml
+      - name: Create test summary
+        uses: test-summary/action@v2.0
+        with:
+          paths: report.xml
+          if: always()
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
