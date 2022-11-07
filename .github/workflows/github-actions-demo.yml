@@ -18,3 +18,8 @@ jobs:
       - name: Check Chrome version
         run: |
               google-chrome --version
+      - name: Test with pytest and generate junit xml report
+        run: |
+            pytest tests --junitxml report.xml
+        env:
+          CICD_RUN: "yes"
