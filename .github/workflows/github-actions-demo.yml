@@ -20,9 +20,3 @@ jobs:
       - name: Check Chrome version
         run: |
               google-chrome --version
-
-      - name: Create test summary
-        uses: test-summary/action@v1.0
-        with:
-          paths: report.xml
-        if: always()
